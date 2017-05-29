@@ -7,6 +7,27 @@
   padding: 20px;
 }
 
+.b-issue {
+  overflow: hidden;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 10px;
+}
+
+.b-issue__description {
+  margin-bottom: 10px;
+}
+
 .b-issue__title {
   font-size: 18px;
+}
+
+.b-issue__status {
+  padding: 5px 10px 3px 10px;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+}
+
+.b-issue__status--OPEN {
+  background: #4a6785;
 }

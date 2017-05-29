@@ -9,5 +9,11 @@
     <div class="b-issue__description">
       {{ issue.description }}
     </div>
+    <div class="b-issue__status--container">
+      <strong>Status: </strong>
+      <span class="b-issue__status b-issue__status--{{ issue.status }}">
+        {{ issue.status }}
+      </span>
+    </div>
   </div>
 </div>
