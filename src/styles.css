@@ -10,3 +10,7 @@ a {
 a:hover {
   color: #1abc9c;
 }
+
+.margin-top-sm {
+  margin-top: 20px;
+}
