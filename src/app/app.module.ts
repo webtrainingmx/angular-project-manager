@@ -12,11 +12,22 @@ import { ProjectListService } from './auth/project-list/services/project-list.se
 import { IssuesListService } from './auth/issues-list/services/issues-list.service';
 import { IssuesListComponent } from './auth/issues-list/issues-list.component';
 import { HomeComponent } from './auth/home/home.component';
+import { NotFoundComponent } from './common/not-found/not-found.component';
 
 const routes: Routes = [
   {
     path: '', component: HomeComponent, pathMatch: 'full'
-  } ];
+  },
+  {
+    path: 'proyectos', component: ProjectListComponent
+  },
+  {
+    path: 'issues', component: IssuesListComponent
+  },
+  {
+    path: '**', component: NotFoundComponent
+  }
+  ];
 
 @NgModule({
   declarations: [
@@ -24,7 +35,8 @@ const routes: Routes = [
     HeaderComponent,
     ProjectListComponent,
     IssuesListComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
