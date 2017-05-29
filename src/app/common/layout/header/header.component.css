@@ -1,0 +1,10 @@
+.navbar {
+  border-radius: 0;
+
+}
+
+.b-navbar-brand {
+  display: block;
+  font-size: 32px;
+  color: #000;
+}
