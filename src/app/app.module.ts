@@ -13,6 +13,7 @@ import { IssuesListService } from './auth/issues-list/services/issues-list.servi
 import { IssuesListComponent } from './auth/issues-list/issues-list.component';
 import { HomeComponent } from './auth/home/home.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
+import { SortingComponent } from './common/sorting/sorting.component';
 
 const routes: Routes = [
   {
@@ -36,13 +37,14 @@ const routes: Routes = [
     ProjectListComponent,
     IssuesListComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SortingComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    HttpModule
+    HttpModule,
   ],
   providers: [ProjectListService, IssuesListService],
   bootstrap: [AppComponent]
