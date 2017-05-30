@@ -1,3 +1,7 @@
+<app-sorting [data]="projects" [elements]="[{name: 'user_id', displayName: 'Usuario'},{name: 'created_at', displayName: 'Creacion'}, {name: 'updated_at', displayName: 'Actualizacion'}]" (sortedData)="setData($event)">
+
+</app-sorting>
+
 <div class="b-project-list">
   <h2>Proyectos</h2>
   <div class="b-project" *ngFor="let project of projects">
