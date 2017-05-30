@@ -17,4 +17,8 @@ export class ProjectListComponent implements OnInit {
     this.projects = this._projectListService.getAll();
   }
 
+  public setData(sortedData) {
+    this.projects = sortedData;
+  }
+
 }

@@ -10,7 +10,7 @@ export class ProjectListService {
     const projects: Array<Project> = [];
 
     projects.push( {
-      id: 1,
+      id: 2,
       title: 'Sistema de Evaluaciones 2017',
       slug: 'SIE',
       description: 'Proyecto relacionado con las tareas del sistema de evaluaciones',
@@ -20,12 +20,12 @@ export class ProjectListService {
     } );
     projects.push( {
       id: 1,
-      title: 'Sistema de Evaluaciones 2017',
+      title: 'Sistema de Evaluaciones 2016',
       slug: 'SIE',
       description: 'Proyecto relacionado con las tareas del sistema de evaluaciones',
-      user_id: 2,
-      created_at: '2017-05-29 16:55:57',
-      updated_at: '2017-05-29 17:03:45'
+      user_id: 1,
+      created_at: '2016-05-29 16:55:57',
+      updated_at: '2017-05-29 19:03:45'
     } );
 
     return projects;
