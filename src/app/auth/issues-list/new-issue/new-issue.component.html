@@ -26,7 +26,6 @@
   <input type="text" id="status" class="form-control"
          formControlName="status" required>
   <label for="priority">Prioridad</label>
-
   <input type="text" id="priority" class="form-control"
          formControlName="priority" required>
 
@@ -37,31 +36,31 @@
   <div class="clearfix"></div>
 
   <div
-    *ngIf="!!issueForm.dirty && !issueForm.valid && (issueErrors.title || issueErrors.slug || issueErrors.project_id || issueErrors.reporter || issueErrors.assignee || issueErrors.type || issueErrors.status || issueErrors.priority)"
+    *ngIf="!!issueForm.dirty && !issueForm.valid && (!!issueErrors.title || !!issueErrors.slug || !!issueErrors.project_id || !!issueErrors.reporter || !!issueErrors.assignee || !!issueErrors.type || !!issueErrors.status || !!issueErrors.priority)"
     class="alert alert-danger margin-top-sm">
     <ul>
-      <li *ngIf="issueErrors.title">
+      <li *ngIf="!!issueErrors.title">
         {{ issueErrors.title }}
       </li>
-      <li *ngIf="issueErrors.slug">
+      <li *ngIf="!!issueErrors.slug">
         {{ issueErrors.slug }}
       </li>
-      <li *ngIf="issueErrors.project_id">
+      <li *ngIf="!!issueErrors.project_id">
         {{ issueErrors.project_id }}
       </li>
-      <li *ngIf="issueErrors.reporter">
+      <li *ngIf="!!issueErrors.reporter">
         {{ issueErrors.reporter }}
       </li>
-      <li *ngIf="issueErrors.assignee">
+      <li *ngIf="!!issueErrors.assignee">
         {{ issueErrors.assignee }}
       </li>
-      <li *ngIf="issueErrors.type">
+      <li *ngIf="!!issueErrors.type">
         {{ issueErrors.type }}
       </li>
-      <li *ngIf="issueErrors.status">
+      <li *ngIf="!!issueErrors.status">
         {{ issueErrors.status }}
       </li>
-      <li *ngIf="issueErrors.priority">
+      <li *ngIf="!!issueErrors.priority">
         {{ issueErrors.priority }}
       </li>
     </ul>

@@ -12,7 +12,7 @@ export class HttpService {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({headers: headers});
 
-    return this._http.get(url, options).map(response => response.json);
+    return this._http.get(url, options).map(response => response.json());
   }
 
   public post(url, params): Observable<any> {
@@ -20,6 +20,6 @@ export class HttpService {
     const options = new RequestOptions({headers: headers});
     const body = JSON.stringify(params);
 
-    return this._http.post(url, body, options).map(response => response.json);
+    return this._http.post(url, body, options).map(response => response.json());
   }
 }
