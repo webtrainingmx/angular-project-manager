@@ -20,10 +20,10 @@ const routes: Routes = [
     path: '', component: HomeComponent, pathMatch: 'full'
   },
   {
-    path: 'proyectos', component: ProjectListComponent
-  },
+    path: 'proyectos', component: ProjectListComponent, data: { name: 'Proyectos' }
+},
   {
-    path: 'issues', component: IssuesListComponent
+    path: 'issues', component: IssuesListComponent, data: { name: 'Issues' }
   },
   {
     path: '**', component: NotFoundComponent
