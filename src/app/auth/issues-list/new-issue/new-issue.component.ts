@@ -25,36 +25,36 @@ export class NewIssueComponent implements OnInit {
   };
   validationMessages = {
     'title': {
-      'required': 'Titulo es requerido.',
-      'minlength': 'Titulo debe tener como minimo 4 caracteres',
-      'maxlength': 'Titulo debe tener como maximo 24 caracteres',
+      'required': 'Título es requerido.',
+      'minlength': 'Título debe tener como mínimo 4 caracteres',
+      'maxlength': 'Título debe tener como máximo 24 caracteres',
     },
     'slug': {
       'required': 'Slug es requerido',
-      'minlength': 'Titulo debe tener como minimo 3 caracteres',
-      'maxlength': 'Titulo debe tener como maximo 6 caracteres',
+      'minlength': 'Slug debe tener como mínimo 3 caracteres',
+      'maxlength': 'Slug debe tener como máximo 6 caracteres',
 
     },
     'project_id': {
       'required': 'ID de proyecto es requerido',
     },
     'description': {
-      'required': 'Descipcion es requerido',
+      'required': 'Descipción es requerida',
     },
     'reporter': {
-      'required': 'ID de creador es requerido',
+      'required': 'ID de responsable es requerido',
     },
     'assignee': {
-      'required': 'ID de responsable es requerido',
+      'required': 'ID de asignación es requerido',
     },
     'type': {
       'required': 'Tipo es requerido',
     },
     'status': {
-      'required': 'Estatus es requerido',
+      'required': 'Status es requerido',
      },
     'priority': {
-      'required': 'Prioridad es requerido',
+      'required': 'Prioridad es requerida',
     }
   };
 
@@ -63,7 +63,7 @@ export class NewIssueComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm();
-    console.log(this.issueForm);
+    // console.log(this.issueForm);
   }
 
   public buildForm() {
@@ -78,7 +78,9 @@ export class NewIssueComponent implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(6)
       ]],
-      description: '',
+      description: [this.issue.description, [
+        Validators.required
+      ]],
       project_id: [this.issue.project_id, [
         Validators.required,
       ]],
@@ -104,22 +106,33 @@ export class NewIssueComponent implements OnInit {
   }
 
 
-  onValueChanged(data?: any) {
-    console.log(this.issueForm);
+  onValueChanged(data?: Issue) {
+    console.log(data);
+
     if (!this.issueForm) {
       return;
     }
+
     const form = this.issueForm;
+
     for (const field in this.issueErrors) {
-      // clear previous error message (if any)
-      this.issueErrors[field] = '';
-      const control = form.get(field);
-      if (control && control.dirty && !control.valid) {
-        const messages = this.validationMessages[field];
-        for (const key in control.errors) {
-          this.issueErrors[field] += messages[key] + ' ';
+      // Clear previous error message (if any)
+      if (this.issueErrors.hasOwnProperty(field)) {
+        this.issueErrors[field] = '';
+
+        const control = form.get(field);
+
+        if (control && control.dirty && !control.valid) {
+          const messages = this.validationMessages[field];
+
+          for (const key in control.errors) {
+            if (control.errors.hasOwnProperty(key)) {
+              this.issueErrors[field] += messages[key] + ' ';
+            }
+          }
         }
       }
+
     }
   }
 

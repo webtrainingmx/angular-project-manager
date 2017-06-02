@@ -1,9 +1,13 @@
 <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle sorting-dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    {{ !!selected ? selected : 'Sorting By'}}
+  <button class="btn btn-default dropdown-toggle sorting-dropdown"
+          type="button" id="dropdownMenu1"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    {{ !!selected ? selected : 'Ordenar por'}}
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li *ngFor="let element of elements" (click)="sort(element)"><a>{{element.displayName}}</a></li>
+    <li *ngFor="let element of elements" (click)="sort(element)">
+      <a>{{element.displayName}}</a>
+    </li>
   </ul>
 </div>

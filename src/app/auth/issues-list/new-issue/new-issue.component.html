@@ -1,40 +1,46 @@
 <form [formGroup]="issueForm" (ngSubmit)="onSubmit()">
 
-
-  <label for="title">Title</label>
+  <label for="title">Título</label>
   <input type="text" id="title" class="form-control"
          formControlName="title" required>
+
   <label for="slug">Slug</label>
   <input type="text" id="slug" class="form-control"
          formControlName="slug" required>
-  <label for="description">Descripcion</label>
+
+  <label for="description">Descripción</label>
   <input type="text" id="description" class="form-control"
          formControlName="description" required>
-  <label for="project_id">Proyecto ID</label>
+
+  <label for="project_id">ID Proyecto</label>
   <input type="number" id="project_id" class="form-control"
          formControlName="project_id" required>
-  <label for="reporter">creador</label>
+
+  <label for="reporter">Responsable</label>
   <input type="number" id="reporter" class="form-control"
          formControlName="reporter" required>
-  <label for="assignee">responsable</label>
+
+  <label for="assignee">Asignado a</label>
   <input type="number" id="assignee" class="form-control"
          formControlName="assignee" required>
+
   <label for="type">Tipo</label>
   <input type="text" id="type" class="form-control"
          formControlName="type" required>
-  <label for="status">Estatus</label>
+
+  <label for="status">Status</label>
   <input type="text" id="status" class="form-control"
          formControlName="status" required>
+
   <label for="priority">Prioridad</label>
   <input type="text" id="priority" class="form-control"
          formControlName="priority" required>
 
   <button type="submit" class="btn btn-default"
-          [disabled]="!issueForm.valid">Submit
+          [disabled]="!issueForm.valid">Guardar
   </button>
 
   <div class="clearfix"></div>
-
   <div
     *ngIf="!!issueForm.dirty && !issueForm.valid && (!!issueErrors.title || !!issueErrors.slug || !!issueErrors.project_id || !!issueErrors.reporter || !!issueErrors.assignee || !!issueErrors.type || !!issueErrors.status || !!issueErrors.priority)"
     class="alert alert-danger margin-top-sm">
@@ -64,7 +70,5 @@
         {{ issueErrors.priority }}
       </li>
     </ul>
-
   </div>
-
 </form>

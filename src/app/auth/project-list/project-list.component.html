@@ -1,6 +1,13 @@
-<app-sorting [data]="projects" [elements]="[{name: 'user_id', displayName: 'Usuario'},{name: 'created_at', displayName: 'Creacion'}, {name: 'updated_at', displayName: 'Actualizacion'}]" (sortedData)="setData($event)">
-
-</app-sorting>
+<div class="margin-bottom-xs b-project-list-sorting">
+  <app-sorting [data]="projects"
+               [elements]="[
+               {name: 'user_id', displayName: 'Usuario'},
+               {name: 'title', displayName: 'Título'},
+               {name: 'created_at', displayName: 'Creación'},
+               {name: 'updated_at', displayName: 'Actualización'}
+               ]" (sortedData)="setData($event)">
+  </app-sorting>
+</div>
 
 <div class="b-project-list">
   <h2>Proyectos</h2>
@@ -18,8 +25,12 @@
 
 <div class="clearfix"></div>
 
-<div class="col-md-2 col-md-offset-10 margin-top-sm">
-  <button class="btn btn-primary pull-right" [routerLink]="['/proyectos/nuevo']">
-    Nuevo Proyecto
-  </button>
+<div class="row">
+  <div class="col-md-2 col-md-offset-10 margin-top-sm">
+    <div class="b-btn-new-project overflow-hidden">
+      <button class="btn btn-primary pull-right" [routerLink]="['/proyectos/nuevo']">
+        Nuevo Proyecto
+      </button>
+    </div>
+  </div>
 </div>
