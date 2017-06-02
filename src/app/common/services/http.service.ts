@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
+import {Config} from '../../common/config';
 
 @Injectable()
 export class HttpService {
+  apiBaseURL = Config.API_SERVER_URL;
 
   constructor(public _http: Http) { }
 

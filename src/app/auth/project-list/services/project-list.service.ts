@@ -6,7 +6,6 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ProjectListService extends HttpService {
-  apiBaseURL = 'http://localhost:8085';
 
   constructor(public _http: Http) {
     super(_http);
