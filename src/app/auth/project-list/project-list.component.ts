@@ -14,7 +14,15 @@ export class ProjectListComponent implements OnInit {
   constructor(private _projectListService: ProjectListService) { }
 
   ngOnInit() {
-    this.projects = this._projectListService.getAll();
+    this._projectListService.getAll().subscribe((projects: Project[] = []) => {
+        this.projects = projects;
+      },
+      err => {
+        console.error(err);
+      },
+      () => {
+        console.log('Finished!');
+      });
   }
 
   public setData(sortedData) {

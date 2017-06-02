@@ -1,34 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Project } from '../models/project.model';
+import { HttpService } from '../../../common/services/http.service';
+import { Http, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class ProjectListService {
+export class ProjectListService extends HttpService {
+  apiBaseURL = 'http://localhost:8085';
 
-  constructor() { }
+  constructor(public _http: Http) {
+    super(_http);
+  }
 
-  public getAll(): Array<Project> {
+  public getAll(): Observable<Array<Project>> {
     const projects: Array<Project> = [];
+    const url = `${this.apiBaseURL}/projects`;
 
-    projects.push( {
-      id: 2,
-      title: 'Sistema de Evaluaciones 2017',
-      slug: 'SIE',
-      description: 'Proyecto relacionado con las tareas del sistema de evaluaciones',
-      user_id: 2,
-      created_at: '2017-05-29 16:55:57',
-      updated_at: '2017-05-29 17:03:45'
-    } );
-    projects.push( {
-      id: 1,
-      title: 'Sistema de Evaluaciones 2016',
-      slug: 'SIE',
-      description: 'Proyecto relacionado con las tareas del sistema de evaluaciones',
-      user_id: 1,
-      created_at: '2016-05-29 16:55:57',
-      updated_at: '2017-05-29 19:03:45'
-    } );
-
-    return projects;
+    return this.get(url);
   }
 
 
