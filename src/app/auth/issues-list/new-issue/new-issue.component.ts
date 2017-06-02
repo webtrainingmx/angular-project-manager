@@ -111,15 +111,20 @@ export class NewIssueComponent implements OnInit {
     }
     const form = this.issueForm;
     for (const field in this.issueErrors) {
-      // clear previous error message (if any)
-      this.issueErrors[field] = '';
-      const control = form.get(field);
-      if (control && control.dirty && !control.valid) {
-        const messages = this.validationMessages[field];
-        for (const key in control.errors) {
-          this.issueErrors[field] += messages[key] + ' ';
+      // Clear previous error message (if any)
+      if (this.issueErrors.hasOwnProperty(field)) {
+        this.issueErrors[field] = '';
+        const control = form.get(field);
+        if (control && control.dirty && !control.valid) {
+          const messages = this.validationMessages[field];
+          for (const key in control.errors) {
+            if (control.errors.hasOwnProperty(key)) {
+              this.issueErrors[field] += messages[key] + ' ';
+            }
+          }
         }
       }
+
     }
   }
 
