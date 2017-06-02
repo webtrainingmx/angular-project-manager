@@ -63,7 +63,7 @@ export class NewIssueComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm();
-    console.log(this.issueForm);
+    // console.log(this.issueForm);
   }
 
   public buildForm() {
@@ -78,7 +78,9 @@ export class NewIssueComponent implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(6)
       ]],
-      description: '',
+      description: [this.issue.description, [
+        Validators.required
+      ]],
       project_id: [this.issue.project_id, [
         Validators.required,
       ]],
@@ -104,19 +106,25 @@ export class NewIssueComponent implements OnInit {
   }
 
 
-  onValueChanged(data?: any) {
-    console.log(this.issueForm);
+  onValueChanged(data?: Issue) {
+    console.log(data);
+
     if (!this.issueForm) {
       return;
     }
+
     const form = this.issueForm;
+
     for (const field in this.issueErrors) {
       // Clear previous error message (if any)
       if (this.issueErrors.hasOwnProperty(field)) {
         this.issueErrors[field] = '';
+
         const control = form.get(field);
+
         if (control && control.dirty && !control.valid) {
           const messages = this.validationMessages[field];
+
           for (const key in control.errors) {
             if (control.errors.hasOwnProperty(key)) {
               this.issueErrors[field] += messages[key] + ' ';
