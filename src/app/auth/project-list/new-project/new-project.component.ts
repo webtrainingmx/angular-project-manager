@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Project} from '../models/project.model';
 import {HttpService} from '../../../common/services/http.service';
 import {Config} from '../../../common/config';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
+import {AlertsService, AlertType} from '@jaspero/ng2-alerts/dist';
 
 @Component({
   selector: 'app-new-project',
@@ -14,7 +15,7 @@ export class NewProjectComponent implements OnInit {
 
   project: Project = <any>{};
 
-  constructor(public _httpService: HttpService, private _router: Router) {
+  constructor(public _httpService: HttpService, private _router: Router, private _alert: AlertsService) {
   }
 
   onSubmit(event: Event) {
@@ -23,8 +24,17 @@ export class NewProjectComponent implements OnInit {
     const url = `${this.apiBaseURL}/projects`;
     this._httpService.post(url, this.project).subscribe(
       (project: Project) => {
-        console.log(`Proyecto creado: ${project.title}` );
-        this._router.navigate(['/proyectos']);
+        this._alert.create('success', 'This is a message',
+          {
+            overlay: true,
+            overlayClickToClose: true,
+            showCloseButton: true,
+            duration: 5000
+          });
+        setTimeout(() => {
+          this._router.navigate(['/proyectos']);
+
+        }, 5000);
       },
       errorResponse => {
         const errorData = errorResponse.json();
