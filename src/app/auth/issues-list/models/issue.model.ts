@@ -1,5 +1,5 @@
 export class Issue {
-  id: number;
+  id?: number;
   title: string;
   slug: string;
   description: string;
@@ -9,6 +9,6 @@ export class Issue {
   type: string;
   status: string;
   priority: string;
-  created_at: string;
-  updated_at: string;
+  created_at?: string;
+  updated_at?: string;
 }
