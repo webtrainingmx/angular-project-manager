@@ -1,0 +1,69 @@
+<form #projectForm="ngForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="title">Titulo</label>
+    <input type="text" id="title" class="form-control"
+           required minlength="4" maxlength="24"
+           name="name" [(ngModel)]="project.title"
+           #title="ngModel">
+  </div>
+  <div class="form-group">
+    <label for="slug">Slug</label>
+    <input type="text" id="slug" class="form-control"
+           name="slug" required
+           [(ngModel)]="project.slug" #slug="ngModel">
+  </div>
+
+  <div class="form-group">
+    <label for="description">Descripcion</label>
+    <input type="text" id="description" class="form-control"
+           name="description" required
+           [(ngModel)]="project.description" #description="ngModel">
+  </div>
+
+  <div class="form-group">
+    <label for="description">ID de Usuario</label>
+    <input type="number" id="userID" class="form-control"
+           name="userID" required
+           [(ngModel)]="project.user_id" #userID="ngModel">
+  </div>
+
+  <button type="submit" class="btn btn-default"
+          [disabled]="!projectForm.form.valid">Submit
+  </button>
+
+  <div class="clearfix"></div>
+  <div
+    *ngIf="!projectForm.form.valid"
+    class="alert alert-danger margin-top-sm">
+    <ul>
+      <div *ngIf="title.errors">
+        <li [hidden]="!title.errors.required">
+          Titulo es requerido
+        </li>
+        <li [hidden]="!title.errors.minlength">
+          Titulo debe tener al menos 4 caracteres.
+        </li>
+        <li [hidden]="!title.errors.maxlength">
+          Titulo no puede ser mayor a 24 caracteres.
+        </li>
+      </div>
+      <div *ngIf="slug.errors">
+        <li [hidden]="!slug.errors.required">
+          Slug es requerido
+        </li>
+      </div>
+      <div *ngIf="description.errors">
+        <li [hidden]="!description.errors.required">
+          Description es requerido
+        </li>
+      </div>
+      <div *ngIf="userID.errors">
+        <li [hidden]="!userID.errors.required">
+          ID de usuario requerido
+        </li>
+      </div>
+    </ul>
+  </div>
+
+</form>
