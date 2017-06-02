@@ -18,6 +18,8 @@ import {GroupingComponent} from './common/grouping/grouping.component';
 import {NewProjectComponent} from './auth/project-list/new-project/new-project.component';
 import {NewIssueComponent} from './auth/issues-list/new-issue/new-issue.component';
 import {HttpService} from './common/services/http.service';
+import {JasperoAlertsModule} from '@jaspero/ng2-alerts';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 const routes: Routes = [
   {
@@ -61,6 +63,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     HttpModule,
+    BrowserAnimationsModule,
+    JasperoAlertsModule
   ],
   providers: [ProjectListService, IssuesListService, HttpService],
   bootstrap: [AppComponent]
