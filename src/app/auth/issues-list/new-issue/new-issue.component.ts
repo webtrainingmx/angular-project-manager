@@ -25,36 +25,36 @@ export class NewIssueComponent implements OnInit {
   };
   validationMessages = {
     'title': {
-      'required': 'Titulo es requerido.',
-      'minlength': 'Titulo debe tener como minimo 4 caracteres',
-      'maxlength': 'Titulo debe tener como maximo 24 caracteres',
+      'required': 'Título es requerido.',
+      'minlength': 'Título debe tener como mínimo 4 caracteres',
+      'maxlength': 'Título debe tener como máximo 24 caracteres',
     },
     'slug': {
       'required': 'Slug es requerido',
-      'minlength': 'Titulo debe tener como minimo 3 caracteres',
-      'maxlength': 'Titulo debe tener como maximo 6 caracteres',
+      'minlength': 'Slug debe tener como mínimo 3 caracteres',
+      'maxlength': 'Slug debe tener como máximo 6 caracteres',
 
     },
     'project_id': {
       'required': 'ID de proyecto es requerido',
     },
     'description': {
-      'required': 'Descipcion es requerido',
+      'required': 'Descipción es requerida',
     },
     'reporter': {
-      'required': 'ID de creador es requerido',
+      'required': 'ID de responsable es requerido',
     },
     'assignee': {
-      'required': 'ID de responsable es requerido',
+      'required': 'ID de asignación es requerido',
     },
     'type': {
       'required': 'Tipo es requerido',
     },
     'status': {
-      'required': 'Estatus es requerido',
+      'required': 'Status es requerido',
      },
     'priority': {
-      'required': 'Prioridad es requerido',
+      'required': 'Prioridad es requerida',
     }
   };
 

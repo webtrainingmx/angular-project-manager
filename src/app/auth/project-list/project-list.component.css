@@ -19,3 +19,7 @@
 .b-project__title {
   font-size: 18px;
 }
+
+.b-btn-new-project {
+  height: 40px;
+}

@@ -26,3 +26,7 @@ a:hover {
 .margin-bottom-xs {
   margin-bottom: 10px;
 }
+
+.overflow-hidden {
+  overflow: hidden;
+}
