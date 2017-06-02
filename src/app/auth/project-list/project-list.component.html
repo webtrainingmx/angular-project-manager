@@ -1,6 +1,13 @@
-<app-sorting [data]="projects" [elements]="[{name: 'user_id', displayName: 'Usuario'},{name: 'created_at', displayName: 'Creacion'}, {name: 'updated_at', displayName: 'Actualizacion'}]" (sortedData)="setData($event)">
-
-</app-sorting>
+<div class="margin-bottom-xs b-project-list-sorting">
+  <app-sorting [data]="projects"
+               [elements]="[
+               {name: 'user_id', displayName: 'Usuario'},
+               {name: 'title', displayName: 'Título'},
+               {name: 'created_at', displayName: 'Creación'},
+               {name: 'updated_at', displayName: 'Actualización'}
+               ]" (sortedData)="setData($event)">
+  </app-sorting>
+</div>
 
 <div class="b-project-list">
   <h2>Proyectos</h2>

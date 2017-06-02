@@ -17,7 +17,7 @@ import {SortingComponent} from './common/sorting/sorting.component';
 import {GroupingComponent} from './common/grouping/grouping.component';
 import {NewProjectComponent} from './auth/project-list/new-project/new-project.component';
 import {NewIssueComponent} from './auth/issues-list/new-issue/new-issue.component';
-import {HttpService} from "./common/services/http.service";
+import {HttpService} from './common/services/http.service';
 
 const routes: Routes = [
   {

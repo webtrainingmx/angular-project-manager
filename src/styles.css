@@ -15,3 +15,14 @@ a:hover {
   margin-top: 20px;
 }
 
+.margin-bottom-sm {
+  margin-bottom: 20px;
+}
+
+.margin-top-xs {
+  margin-top: 10px;
+}
+
+.margin-bottom-xs {
+  margin-bottom: 10px;
+}

@@ -26,6 +26,7 @@ export class ProjectListComponent implements OnInit {
   }
 
   public setData(sortedData) {
+    console.log('sortedData: %o', sortedData);
     this.projects = sortedData;
   }
 

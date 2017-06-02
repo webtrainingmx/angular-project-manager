@@ -1,3 +1,6 @@
+.b-project-list-sorting {
+
+}
 .b-project-list {
   border-top: 1px solid #1abc9c;
   border-left: 1px solid #ccc;
@@ -5,6 +8,12 @@
   border-bottom: 1px solid #ccc;
   background: white;
   padding: 20px;
+}
+
+.b-project {
+  overflow: hidden;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 10px;
 }
 
 .b-project__title {
