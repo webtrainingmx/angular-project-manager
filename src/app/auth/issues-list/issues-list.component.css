@@ -19,10 +19,12 @@
 
 .b-issue__title {
   font-size: 18px;
+  line-height: 1.5em;
+  color: #1abc9c;
 }
 
 .b-issue__status {
-  padding: 5px 10px 3px 10px;
+  padding: 5px 10px 4px 10px;
   border-radius: 4px;
   color: white;
   font-size: 12px;

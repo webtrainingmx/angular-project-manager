@@ -15,7 +15,8 @@ export class NewProjectComponent implements OnInit {
 
   project: Project = <any>{};
 
-  constructor(public _httpService: HttpService, private _router: Router, private _alert: AlertsService) {
+  constructor(public _httpService: HttpService, private _router: Router,
+              private _alert: AlertsService) {
   }
 
   onSubmit(event: Event) {
@@ -24,20 +25,26 @@ export class NewProjectComponent implements OnInit {
     const url = `${this.apiBaseURL}/projects`;
     this._httpService.post(url, this.project).subscribe(
       (project: Project) => {
-        this._alert.create('success', 'This is a message',
+        this._alert.create('success', `Proyecto "${project.title}" ha sido creado.`,
           {
             overlay: true,
             overlayClickToClose: true,
             showCloseButton: true,
-            duration: 5000
+            duration: 3000
           });
         setTimeout(() => {
           this._router.navigate(['/proyectos']);
-
-        }, 5000);
+        }, 3000);
       },
       errorResponse => {
         const errorData = errorResponse.json();
+        this._alert.create('error', `Proyecto no se pudo crear :(`,
+          {
+            overlay: true,
+            overlayClickToClose: true,
+            showCloseButton: true,
+            duration: 3000
+          });
         console.error(errorData.error);
       },
       () => {

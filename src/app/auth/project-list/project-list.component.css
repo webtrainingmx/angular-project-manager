@@ -18,6 +18,8 @@
 
 .b-project__title {
   font-size: 18px;
+  color: #1abc9c;
+  line-height: 1.5em;
 }
 
 .b-btn-new-project {
