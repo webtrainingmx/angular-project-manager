@@ -20,6 +20,11 @@
     <div class="b-project__description">
       {{ project.description }}
     </div>
+    <div class="b-project__actions">
+      <a (click)="onDeleteProject(project)">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </div>
 
