@@ -19,7 +19,8 @@ import {NewProjectComponent} from './auth/project-list/new-project/new-project.c
 import {NewIssueComponent} from './auth/issues-list/new-issue/new-issue.component';
 import {HttpService} from './common/services/http.service';
 import {JasperoAlertsModule} from '@jaspero/ng2-alerts';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {LoaderComponent} from './common/loader/loader.component';
 
 const routes: Routes = [
   {
@@ -55,7 +56,8 @@ const routes: Routes = [
     SortingComponent,
     GroupingComponent,
     NewProjectComponent,
-    NewIssueComponent
+    NewIssueComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ export class ProjectListComponent implements OnInit {
 
   projects: Array<Project> = [];
   apiBaseURL: string = Config.API_SERVER_URL;
+  isLoading = true;
 
   constructor(private _projectListService: ProjectListService,
   private _httpService: HttpService) { }
@@ -24,6 +25,7 @@ export class ProjectListComponent implements OnInit {
   getAllProjects() {
     this._projectListService.getAll().subscribe((projects: Project[] = []) => {
         this.projects = projects;
+        this.isLoading = false;
       },
       err => {
         console.error(err);
