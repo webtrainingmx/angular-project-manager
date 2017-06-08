@@ -18,8 +18,26 @@
 
 .b-project__title {
   font-size: 18px;
+  color: #1abc9c;
+  line-height: 1.5em;
 }
 
 .b-btn-new-project {
   height: 40px;
+}
+
+.b-project__actions {
+  margin-top: 10px;
+  background: #f1f1f1;
+  padding: 10px 15px 6px 15px;
+}
+
+.b-project__actions .fa {
+  color: #000;
+  font-size: 20px;
+}
+
+.b-project__actions .fa:hover {
+  color: #1abc9c;
+  cursor: pointer;
 }

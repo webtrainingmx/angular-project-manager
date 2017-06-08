@@ -30,3 +30,31 @@ a:hover {
 .overflow-hidden {
   overflow: hidden;
 }
+
+/* Containers for centering loader */
+.outer-container {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.middle-container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  max-width: 600px;
+}
+
+.loading-error {
+  display: none;
+  padding: 5px 15px;
+  background: #fff6f6;
+  color: #9f3a38;
+  border: 1px solid #9f3a38;
+}

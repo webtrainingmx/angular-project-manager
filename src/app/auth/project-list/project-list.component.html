@@ -1,36 +1,50 @@
-<div class="margin-bottom-xs b-project-list-sorting">
-  <app-sorting [data]="projects"
-               [elements]="[
+<div *ngIf="isLoading; else elseBlock">
+  <div class="auth-loader-container">
+    <app-loader></app-loader>
+  </div>
+</div>
+<template #elseBlock>
+  <div class="margin-bottom-xs b-project-list-sorting">
+    <app-sorting [data]="projects"
+                 [elements]="[
                {name: 'user_id', displayName: 'Usuario'},
                {name: 'title', displayName: 'Título'},
                {name: 'created_at', displayName: 'Creación'},
                {name: 'updated_at', displayName: 'Actualización'}
                ]" (sortedData)="setData($event)">
-  </app-sorting>
-</div>
+    </app-sorting>
+  </div>
 
-<div class="b-project-list">
-  <h2>Proyectos</h2>
-  <div class="b-project" *ngFor="let project of projects">
-    <div class="b-project__title-container">
-      <a href="">
-        <h3 class="b-project__title">{{ project.title }}</h3>
-      </a>
-    </div>
-    <div class="b-project__description">
-      {{ project.description }}
+  <div class="b-project-list">
+    <h2>Proyectos</h2>
+    <div class="b-project" *ngFor="let project of projects">
+      <div class="b-project__title-container">
+        <a href="">
+          <h3 class="b-project__title">{{ project.title }}</h3>
+        </a>
+      </div>
+      <div class="b-project__description">
+        {{ project.description }}
+      </div>
+      <div class="b-project__actions">
+        <a (click)="onDeleteProject(project)">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="clearfix"></div>
+  <div class="clearfix"></div>
 
-<div class="row">
-  <div class="col-md-2 col-md-offset-10 margin-top-sm">
-    <div class="b-btn-new-project overflow-hidden">
-      <button class="btn btn-primary pull-right" [routerLink]="['/proyectos/nuevo']">
-        Nuevo Proyecto
-      </button>
+  <div class="row">
+    <div class="col-md-2 col-md-offset-10 margin-top-sm">
+      <div class="b-btn-new-project overflow-hidden">
+        <button class="btn btn-primary pull-right" [routerLink]="['/proyectos/nuevo']">
+          Nuevo Proyecto
+        </button>
+      </div>
     </div>
   </div>
-</div>
+
+</template>
+
