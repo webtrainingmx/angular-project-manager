@@ -29,20 +29,24 @@
           </div>
           <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav pull-right">
-              <li class="leaf" [ngClass]="{ active: router.url.indexOf('/proyectos') !== -1}">
+              <li class="leaf"
+                  [ngClass]="{ active: router.url.indexOf('/proyectos') !== -1}"
+                  *ngIf="_authService.isLoggedIn()">
                 <a
                   routerLink="/proyectos"
                   routerLinkActive="active"
                   [routerLinkActiveOptions]="{ exact: true }"
                   title="Cursos">Proyectos</a>
               </li>
-              <li class="leaf" [ngClass]="{ active: router.url.indexOf('/issues') !== -1}">
+              <li class="leaf"
+                  [ngClass]="{ active: router.url.indexOf('/issues') !== -1}"
+                  *ngIf="_authService.isLoggedIn()">
                 <a routerLink="/issues"
                    routerLinkActive="active"
                    [routerLinkActiveOptions]="{ exact: true }"
                    title="Iniciar sesión">Issues</a>
               </li>
-              <li class="leaf" *ngIf="_authService.isLogin()">
+              <li class="leaf" *ngIf="_authService.isLoggedIn()">
                 <a title="Cerrar sesión" (click)="logout()">Salir</a>
               </li>
             </ul>
