@@ -14,7 +14,7 @@ export class AuthenticationService {
   constructor(public _http: HttpService, private _locker: Locker) {
   }
 
-  public isLogin() {
+  public isLoggedIn() {
     const user = this._locker.get('user');
     if (!!user) {
       this.user = user;
