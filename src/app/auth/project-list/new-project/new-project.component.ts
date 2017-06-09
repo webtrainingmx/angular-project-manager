@@ -4,6 +4,7 @@ import {HttpService} from '../../../common/services/http.service';
 import {Config} from '../../../common/config';
 import {Router} from '@angular/router';
 import {AlertsService, AlertType} from '@jaspero/ng2-alerts/dist';
+import {AuthenticationService} from '../../../common/services/authentication.service';
 
 @Component({
   selector: 'app-new-project',
@@ -16,7 +17,7 @@ export class NewProjectComponent implements OnInit {
   project: Project = <any>{};
 
   constructor(public _httpService: HttpService, private _router: Router,
-              private _alert: AlertsService) {
+              private _alert: AlertsService, private authService: AuthenticationService) {
   }
 
   onSubmit(event: Event) {
