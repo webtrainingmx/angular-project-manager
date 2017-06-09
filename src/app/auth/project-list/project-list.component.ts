@@ -3,6 +3,7 @@ import { ProjectListService } from './services/project-list.service';
 import { Project } from './models/project.model';
 import { HttpService } from '../../common/services/http.service';
 import {Config} from '../../common/config';
+import {AuthenticationService} from 'app/common/services/authentication.service';
 
 @Component({
   selector: 'app-project-list',
@@ -16,7 +17,7 @@ export class ProjectListComponent implements OnInit {
   isLoading = true;
 
   constructor(private _projectListService: ProjectListService,
-  private _httpService: HttpService) { }
+  private _httpService: HttpService,  private _authService: AuthenticationService) { }
 
   ngOnInit() {
     this.getAllProjects();
@@ -29,6 +30,7 @@ export class ProjectListComponent implements OnInit {
       },
       err => {
         console.error(err);
+        this.isLoading = false;
       },
       () => {
         console.log('Finished!');
@@ -42,7 +44,7 @@ export class ProjectListComponent implements OnInit {
   onDeleteProject(project: Project) {
     const url = `${this.apiBaseURL}/projects/${project.id}`;
 
-    this._httpService.delete(url).subscribe((response) => {
+    this._httpService.delete(url, this._authService.user.token).subscribe((response) => {
         console.log(response);
         this.getAllProjects();
       },

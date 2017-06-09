@@ -42,6 +42,9 @@
                    [routerLinkActiveOptions]="{ exact: true }"
                    title="Iniciar sesión">Issues</a>
               </li>
+              <li class="leaf" *ngIf="_authService.isLogin()">
+                <a title="Cerrar sesión" (click)="logout()">Salir</a>
+              </li>
             </ul>
           </div>
         </div>

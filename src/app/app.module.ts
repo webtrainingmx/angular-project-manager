@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule, Routes} from '@angular/router';
+import {LockerModule} from 'angular-safeguard';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './common/layout/header/header.component';
@@ -21,24 +22,35 @@ import {HttpService} from './common/services/http.service';
 import {JasperoAlertsModule} from '@jaspero/ng2-alerts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoaderComponent} from './common/loader/loader.component';
+import {CanActivateGuard} from 'app/can-activate.guard';
+import {AuthenticationService} from './common/services/authentication.service';
+import {LoginComponent} from './public/login/login.component';
+import {NoAuthGuard} from './no-auth.guard';
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent, pathMatch: 'full'
+    path: '', pathMatch: 'full', redirectTo: '/login'
   },
   {
-    path: 'proyectos', component: ProjectListComponent, data: { name: 'Proyectos' }
-},
+    path: 'login', component: LoginComponent, pathMatch: 'full', canActivate: [NoAuthGuard]
+  },
   {
-    path: 'issues', component: IssuesListComponent, data: { name: 'Issues' }
+    path: 'home', component: HomeComponent, data: {name: 'Home'}, canActivate: [CanActivateGuard]
+  }, {
+    path: 'proyectos', component: ProjectListComponent, data: {name: 'Proyectos'}, canActivate: [CanActivateGuard]
+  },
+  {
+    path: 'issues', component: IssuesListComponent, data: {name: 'Issues'}, canActivate: [CanActivateGuard]
   },
   {
     path: 'proyectos/nuevo',
-    component: NewProjectComponent
+    component: NewProjectComponent,
+    canActivate: [CanActivateGuard]
   },
   {
     path: 'issues/nuevo',
-    component: NewIssueComponent
+    component: NewIssueComponent,
+    canActivate: [CanActivateGuard]
   },
   {
     path: '**', component: NotFoundComponent
@@ -57,7 +69,8 @@ const routes: Routes = [
     GroupingComponent,
     NewProjectComponent,
     NewIssueComponent,
-    LoaderComponent
+    LoaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -66,9 +79,10 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpModule,
     BrowserAnimationsModule,
-    JasperoAlertsModule
+    JasperoAlertsModule,
+    LockerModule
   ],
-  providers: [ProjectListService, IssuesListService, HttpService],
+  providers: [ProjectListService, IssuesListService, HttpService, NoAuthGuard, CanActivateGuard, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
