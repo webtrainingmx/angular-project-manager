@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
-import {RouterModule, Routes} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import {Ng2Webstorage} from 'ngx-webstorage';
 
 import {AppComponent} from './app.component';
@@ -26,36 +26,7 @@ import {AuthGuard} from 'app/common/guards/auth.guard';
 import {AuthenticationService} from './common/services/authentication.service';
 import {LoginComponent} from './public/login/login.component';
 import {PublicGuard} from './common/guards/public.guard';
-
-const routes: Routes = [
-  {
-    path: '', pathMatch: 'full', redirectTo: '/login'
-  },
-  {
-    path: 'login', component: LoginComponent, pathMatch: 'full', canActivate: [PublicGuard]
-  },
-  {
-    path: 'home', component: HomeComponent, data: {name: 'Home'}, canActivate: [AuthGuard]
-  }, {
-    path: 'proyectos', component: ProjectListComponent, data: {name: 'Proyectos'}, canActivate: [AuthGuard]
-  },
-  {
-    path: 'issues', component: IssuesListComponent, data: {name: 'Issues'}, canActivate: [AuthGuard]
-  },
-  {
-    path: 'proyectos/nuevo',
-    component: NewProjectComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'issues/nuevo',
-    component: NewIssueComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: '**', component: NotFoundComponent
-  }
-];
+import {routes} from './routes';
 
 @NgModule({
   declarations: [
