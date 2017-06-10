@@ -22,10 +22,10 @@ import {HttpService} from './common/services/http.service';
 import {JasperoAlertsModule} from '@jaspero/ng2-alerts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoaderComponent} from './common/loader/loader.component';
-import {CanActivateGuard} from 'app/can-activate.guard';
+import {CanActivateGuard} from 'app/common/guards/can-activate.guard';
 import {AuthenticationService} from './common/services/authentication.service';
 import {LoginComponent} from './public/login/login.component';
-import {NoAuthGuard} from './no-auth.guard';
+import {NoAuthGuard} from './common/guards/no-auth.guard';
 
 const routes: Routes = [
   {
