@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
           this._router.navigate(['/home']);
       },
       err => {
+        console.error(err);
         this._authService.hasSession = false;
       }
     );

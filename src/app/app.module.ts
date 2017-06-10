@@ -22,35 +22,35 @@ import {HttpService} from './common/services/http.service';
 import {JasperoAlertsModule} from '@jaspero/ng2-alerts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoaderComponent} from './common/loader/loader.component';
-import {CanActivateGuard} from 'app/common/guards/can-activate.guard';
+import {AuthGuard} from 'app/common/guards/auth.guard';
 import {AuthenticationService} from './common/services/authentication.service';
 import {LoginComponent} from './public/login/login.component';
-import {NoAuthGuard} from './common/guards/no-auth.guard';
+import {PublicGuard} from './common/guards/public.guard';
 
 const routes: Routes = [
   {
     path: '', pathMatch: 'full', redirectTo: '/login'
   },
   {
-    path: 'login', component: LoginComponent, pathMatch: 'full', canActivate: [NoAuthGuard]
+    path: 'login', component: LoginComponent, pathMatch: 'full', canActivate: [PublicGuard]
   },
   {
-    path: 'home', component: HomeComponent, data: {name: 'Home'}, canActivate: [CanActivateGuard]
+    path: 'home', component: HomeComponent, data: {name: 'Home'}, canActivate: [AuthGuard]
   }, {
-    path: 'proyectos', component: ProjectListComponent, data: {name: 'Proyectos'}, canActivate: [CanActivateGuard]
+    path: 'proyectos', component: ProjectListComponent, data: {name: 'Proyectos'}, canActivate: [AuthGuard]
   },
   {
-    path: 'issues', component: IssuesListComponent, data: {name: 'Issues'}, canActivate: [CanActivateGuard]
+    path: 'issues', component: IssuesListComponent, data: {name: 'Issues'}, canActivate: [AuthGuard]
   },
   {
     path: 'proyectos/nuevo',
     component: NewProjectComponent,
-    canActivate: [CanActivateGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'issues/nuevo',
     component: NewIssueComponent,
-    canActivate: [CanActivateGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: '**', component: NotFoundComponent
@@ -82,7 +82,11 @@ const routes: Routes = [
     JasperoAlertsModule,
     Ng2Webstorage
   ],
-  providers: [ProjectListService, IssuesListService, HttpService, NoAuthGuard, CanActivateGuard, AuthenticationService],
+  providers: [
+    ProjectListService, IssuesListService,
+    HttpService,
+    PublicGuard, AuthGuard, // Guards
+    AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

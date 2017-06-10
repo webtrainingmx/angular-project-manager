@@ -4,8 +4,9 @@ import {Observable} from 'rxjs/Observable';
 import {AuthenticationService} from '../services/authentication.service';
 
 @Injectable()
-export class NoAuthGuard implements CanActivate {
-  constructor(public _authenticationService: AuthenticationService, public router: Router) {
+export class PublicGuard implements CanActivate {
+  constructor(public _authenticationService: AuthenticationService,
+              public router: Router) {
   }
 
   canActivate(next: ActivatedRouteSnapshot,
