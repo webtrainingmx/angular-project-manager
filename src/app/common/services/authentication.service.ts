@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpService} from './http.service';
-import { Locker } from 'angular-safeguard';
+import {SessionStorageService} from 'ng2-webstorage';
 import 'rxjs/add/operator/map';
 import {Config} from '../config';
 
@@ -11,11 +11,11 @@ export class AuthenticationService {
   user;
   apiBaseURL: string = Config.API_SERVER_URL;
 
-  constructor(public _http: HttpService, private _locker: Locker) {
+  constructor(public _http: HttpService, public _locker: SessionStorageService) {
   }
 
   public isLoggedIn() {
-    const user = this._locker.get('user');
+    const user = this._locker.retrieve('user');
     if (!!user) {
       this.user = user;
       this.hasSession = true;
@@ -35,7 +35,7 @@ export class AuthenticationService {
   public logout() {
     this.user = null;
     this.hasSession = false;
-    this._locker.remove('user');
+    this._locker.clear('user');
   }
 
 }

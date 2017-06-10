@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../common/services/authentication.service';
 import {Router} from '@angular/router';
-import {AlertsService} from '@jaspero/ng2-alerts/dist';
-import { Locker} from 'angular-safeguard';
+import {SessionStorageService} from 'ng2-webstorage';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(public _authService: AuthenticationService,
               public _router: Router,
-              private _locker: Locker
+              public _locker: SessionStorageService
   ) {
   }
 
@@ -28,7 +27,7 @@ export class LoginComponent implements OnInit {
       (data) => {
           this._authService.user = data;
           this._authService.hasSession = true;
-          this._locker.set('user', data);
+          this._locker.store('user', data);
           this._router.navigate(['/home']);
       },
       err => {
