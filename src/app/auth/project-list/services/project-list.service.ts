@@ -19,5 +19,10 @@ export class ProjectListService extends HttpService {
     return this.get(url, this._authService.user.api_token);
   }
 
+  public getSingle(id: number): Observable<Project> {
+    const url = `${this.apiBaseURL}/projects/${id}`;
+    return this.get(url, this._authService.user.api_token);
+  }
+
 
 }

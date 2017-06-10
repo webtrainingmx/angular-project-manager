@@ -27,6 +27,8 @@ import {AuthenticationService} from './common/services/authentication.service';
 import {LoginComponent} from './public/login/login.component';
 import {PublicGuard} from './common/guards/public.guard';
 import {routes} from './routes';
+import { ProjectsHomeComponent } from './auth/projects-home/projects-home.component';
+import { ProjectDetailComponent } from './auth/project-detail/project-detail.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {routes} from './routes';
     NewProjectComponent,
     NewIssueComponent,
     LoaderComponent,
-    LoginComponent
+    LoginComponent,
+    ProjectsHomeComponent,
+    ProjectDetailComponent
   ],
   imports: [
     BrowserModule,
