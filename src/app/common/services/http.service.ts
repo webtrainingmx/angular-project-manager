@@ -11,11 +11,11 @@ export class HttpService {
   constructor(public _http: Http) {
   }
 
-  public get(url, token?): Observable<any> {
-    const headers = !!token ? new Headers({
+  public get(url, token): Observable<any> {
+    const headers = new Headers({
       'Content-Type': 'application/json',
       'Api-Token': token
-    }) : new Headers({'Content-Type': 'application/json'});
+    });
     const options = new RequestOptions({headers: headers});
     return this._http.get(url, options).map(response => response.json());
   }

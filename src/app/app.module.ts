@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule, Routes} from '@angular/router';
-import {Ng2Webstorage} from 'ng2-webstorage';
+import {Ng2Webstorage} from 'ngx-webstorage';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './common/layout/header/header.component';

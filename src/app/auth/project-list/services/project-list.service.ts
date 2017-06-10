@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Project } from '../models/project.model';
 import { HttpService } from '../../../common/services/http.service';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import {AuthenticationService} from "../../../common/services/authentication.service";
+import { AuthenticationService } from '../../../common/services/authentication.service';
 
 @Injectable()
 export class ProjectListService extends HttpService {

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../common/services/authentication.service';
 import {Router} from '@angular/router';
-import {SessionStorageService} from 'ng2-webstorage';
+import {SessionStorageService} from 'ngx-webstorage';
 
 @Component({
   selector: 'app-login',
