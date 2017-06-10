@@ -22,7 +22,6 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "@jaspero/ng2-alerts": "0.0.7",
-    "angular-safeguard": "^1.0.2",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "jquery": "^2.2.4",

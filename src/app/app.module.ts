@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule, Routes} from '@angular/router';
-import {LockerModule} from 'angular-safeguard';
+import {Ng2Webstorage} from 'ng2-webstorage';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './common/layout/header/header.component';
@@ -80,7 +80,7 @@ const routes: Routes = [
     HttpModule,
     BrowserAnimationsModule,
     JasperoAlertsModule,
-    LockerModule
+    Ng2Webstorage
   ],
   providers: [ProjectListService, IssuesListService, HttpService, NoAuthGuard, CanActivateGuard, AuthenticationService],
   bootstrap: [AppComponent]
