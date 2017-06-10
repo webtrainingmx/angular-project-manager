@@ -14,6 +14,13 @@ import {AuthenticationService} from '../../../common/services/authentication.ser
 export class NewProjectComponent implements OnInit {
   apiBaseURL: string = Config.API_SERVER_URL;
 
+  options = {
+    overlay: true,
+    overlayClickToClose: true,
+    showCloseButton: true,
+    duration: 3000
+  }
+
   project: Project = <any>{};
 
   constructor(public _httpService: HttpService, private _router: Router,

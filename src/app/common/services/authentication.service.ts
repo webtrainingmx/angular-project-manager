@@ -11,10 +11,11 @@ export class AuthenticationService {
   user;
   apiBaseURL: string = Config.API_SERVER_URL;
 
-  constructor(public _http: HttpService, private _locker: SessionStorageService) {
+  constructor(public _http: HttpService, public _locker: SessionStorageService) {
   }
 
   public isLoggedIn() {
+    debugger
     const user = this._locker.retrieve('user');
     if (!!user) {
       this.user = user;
