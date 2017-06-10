@@ -15,7 +15,6 @@ export class AuthenticationService {
   }
 
   public isLoggedIn() {
-    debugger
     const user = this._locker.retrieve('user');
     if (!!user) {
       this.user = user;
