@@ -11,7 +11,6 @@ import {SessionStorageService} from 'ngx-webstorage';
 export class LoginComponent implements OnInit {
 
   user: any = <any>{};
-
   constructor(public _authService: AuthenticationService,
               public _router: Router,
               public _locker: SessionStorageService
@@ -25,6 +24,7 @@ export class LoginComponent implements OnInit {
     event.preventDefault();
     this._authService.logIn(this.user.username, this.user.password).subscribe(
       (data) => {
+          this._authService.wasLoginSuccessful(true);
           this._authService.user = data;
           this._authService.hasSession = true;
           this._locker.store('user', data);
@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
       },
       err => {
         console.error(err);
+        this._authService.wasLoginSuccessful(false);
         this._authService.hasSession = false;
       }
     );

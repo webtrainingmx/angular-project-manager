@@ -3,6 +3,7 @@ import {HttpService} from './http.service';
 import {SessionStorageService} from 'ngx-webstorage';
 import 'rxjs/add/operator/map';
 import {Config} from '../config';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 
 @Injectable()
@@ -10,7 +11,8 @@ export class AuthenticationService {
   hasSession = false;
   user;
   apiBaseURL: string = Config.API_SERVER_URL;
-
+  public _dataSource = new BehaviorSubject<boolean>(false);
+  dataSource$ = this._dataSource.asObservable();
   constructor(public _http: HttpService, public _locker: SessionStorageService) {
   }
 
@@ -36,6 +38,12 @@ export class AuthenticationService {
     this.user = null;
     this.hasSession = false;
     this._locker.clear('user');
+    this._dataSource.next(false);
+
+  }
+
+  public wasLoginSuccessful(flag: boolean) {
+    this._dataSource.next(flag);
   }
 
 }
