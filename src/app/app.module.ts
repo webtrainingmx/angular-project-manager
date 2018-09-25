@@ -1,7 +1,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+// import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {Ng2Webstorage} from 'ngx-webstorage';
 
@@ -52,7 +53,8 @@ import { ProjectDetailComponent } from './auth/project-detail/project-detail.com
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    HttpModule,
+    // HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     JasperoAlertsModule,
     Ng2Webstorage
