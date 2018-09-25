@@ -20,7 +20,7 @@ import {GroupingComponent} from './common/grouping/grouping.component';
 import {NewProjectComponent} from './auth/project-list/new-project/new-project.component';
 import {NewIssueComponent} from './auth/issues-list/new-issue/new-issue.component';
 import {HttpService} from './common/services/http.service';
-import {JasperoAlertsModule} from '@jaspero/ng2-alerts';
+import {JasperoAlertsModule} from '@jaspero/ng-alerts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoaderComponent} from './common/loader/loader.component';
 import {AuthGuard} from 'app/common/guards/auth.guard';
@@ -56,7 +56,7 @@ import { ProjectDetailComponent } from './auth/project-detail/project-detail.com
     // HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    JasperoAlertsModule,
+    JasperoAlertsModule.forRoot(),
     Ng2Webstorage
   ],
   providers: [

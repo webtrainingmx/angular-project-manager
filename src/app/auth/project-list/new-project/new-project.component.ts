@@ -3,7 +3,8 @@ import {Project} from '../models/project.model';
 import {HttpService} from '../../../common/services/http.service';
 import {Config} from '../../../common/config';
 import {Router} from '@angular/router';
-import {AlertsService, AlertType} from '@jaspero/ng2-alerts/dist';
+// import {AlertsService, AlertType} from '@jaspero/ng2-alerts/dist';
+import {AlertsService, AlertType} from '@jaspero/ng-alerts';
 import {AuthenticationService} from '../../../common/services/authentication.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class NewProjectComponent implements OnInit {
     overlayClickToClose: true,
     showCloseButton: true,
     duration: 3000
-  }
+  };
 
   project: Project = <any>{};
 
