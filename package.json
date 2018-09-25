@@ -26,8 +26,7 @@
     "core-js": "^2.5.4",
     "jquery": "^2.2.4",
     "ngx-webstorage": "^2.0.1",
-    "rxjs": "^6.0.0",
-    "rxjs-compat": "^6.3.2",
+    "rxjs": "^6.3.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpService} from './http.service';
 import {SessionStorageService} from 'ngx-webstorage';
-import 'rxjs/add/operator/map';
+
 import {Config} from '../config';
 
 
